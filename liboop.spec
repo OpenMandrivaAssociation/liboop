@@ -1,12 +1,13 @@
 %define _requires_exceptions devel(libadns\\|devel(libtcl
 
 %define	major 4
-%define libname	%mklibname oop %{major}
+%define libname %mklibname oop %{major}
+%define develname %mklibname oop -d
 
 Summary:	A low-level event loop management library for POSIX-based OS'es
 Name:		liboop
 Version:	1.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 URL:		http://liboop.org/
 License:	LGPL
 Source0:	%{name}-%{version}.tar.bz2
@@ -32,8 +33,6 @@ any application.
 %package -n	%{libname}
 Summary:	A low-level event loop management library for POSIX-based OS'es
 Group:          System/Libraries
-Obsoletes:	%{name}
-Provides:	%{name}
 
 %description -n	%{libname}
 Liboop is a low-level event loop management library for POSIX-based 
@@ -45,16 +44,17 @@ signals. Since processes use these mechanisms for almost all
 external communication, liboop can be used as the basis for almost
 any application. 
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the %{libname} library
 Group:		Development/C
-Obsoletes:	oop-devel %{name}-devel
-Provides:	oop-devel %{name}-devel
+Requires:	%{libname} = %{version}
 Requires:	adns-devel
 Requires:	glib-devel
-Requires:	%{libname} = %{version}-%{release}
+Provides:	oop-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{mklibname oop 4 -d}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 Liboop is a low-level event loop management library for POSIX-based 
 operating systems. It supports the development of modular,
 multiplexed applications which may respond to events from several
@@ -94,12 +94,10 @@ make
 %defattr(-,root,root)
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/*.h
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
-
-
