@@ -18,7 +18,6 @@ BuildRequires:	libtool
 BuildRequires:	adns-devel
 BuildRequires:	glib-devel
 BuildRequires:	tcl tcl-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Liboop is a low-level event loop management library for POSIX-based 
