@@ -7,18 +7,19 @@
 Summary:	A low-level event loop management library for POSIX-based OS'es
 Name:		liboop
 Version:	1.0
-Release:	%mkrel 5
-URL:		http://liboop.org/
+Release:	%mkrel 6
 License:	LGPL
-Source0:	%{name}-%{version}.tar.bz2
 Group:		System/Libraries
+URL:		http://liboop.org/
+Source0:	%{name}-%{version}.tar.bz2
+Patch0:		liboop-linkage_fix.diff
 BuildRequires:	autoconf2.5
 BuildRequires:	automake1.7
 BuildRequires:	libtool
 BuildRequires:	adns-devel
 BuildRequires:	glib-devel
 BuildRequires:	tcl tcl-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Liboop is a low-level event loop management library for POSIX-based 
@@ -67,6 +68,7 @@ any application.
 %prep
 
 %setup -q -n %{name}-%{version}
+%patch0 -p0
 
 %build
 export WANT_AUTOCONF_2_5=1
@@ -79,7 +81,7 @@ export CFLAGS="%{optflags} -fPIC"
 make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %makeinstall_std
 
@@ -92,7 +94,7 @@ make
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
