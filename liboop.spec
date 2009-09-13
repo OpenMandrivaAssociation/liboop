@@ -7,7 +7,7 @@
 Summary:	A low-level event loop management library for POSIX-based OS'es
 Name:		liboop
 Version:	1.0
-Release:	%mkrel 7
+Release:	%mkrel 8
 License:	LGPL
 Group:		System/Libraries
 URL:		http://liboop.org/
