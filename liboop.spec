@@ -7,7 +7,7 @@
 Summary:	A low-level event loop management library for POSIX-based OS'es
 Name:		liboop
 Version:	1.0
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	LGPL
 Group:		System/Libraries
 URL:		http://liboop.org/
@@ -17,7 +17,7 @@ Patch0:		liboop-linkage_fix.diff
 # 2008/12
 Patch1:		liboop-1.0-tcl86.patch
 BuildRequires:	libtool
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	adns-devel
 BuildRequires:	glib-devel
 BuildRequires:	tcl-devel
@@ -74,11 +74,11 @@ any application.
 %patch1 -p1 -b .tcl86
 
 %build
-# this bit is done with automake1.7 for good reason. If you use newer
+# this bit is done with automake for good reason. If you use newer
 # versions, it will run fine, but the final built libraries will have
 # no .so extension. Quite bizarre. - AdamW 2008/12
 export WANT_AUTOCONF_2_5=1
-libtoolize --copy --force; aclocal-1.7; autoconf; automake-1.7
+libtoolize --copy --force; aclocal; autoconf; automake
 export CFLAGS="%{optflags} -fPIC"
 
 %configure2_5x
