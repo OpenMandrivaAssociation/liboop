@@ -12,7 +12,7 @@
 Summary:	A low-level event loop management library for POSIX-based OS'es
 Name:		liboop
 Version:	1.0
-Release:	12
+Release:	13
 License:	LGPLv2.1+
 Group:		System/Libraries
 Url:		http://liboop.org/
