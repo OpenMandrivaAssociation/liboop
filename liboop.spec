@@ -15,7 +15,7 @@ Version:	1.0
 Release:	13
 License:	LGPLv2.1+
 Group:		System/Libraries
-Url:		http://liboop.org/
+Url:		https://liboop.org/
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		liboop-linkage_fix.diff
 # Add 8.5 and 8.6 to tcl versions configure script detects - AdamW 2008/12
