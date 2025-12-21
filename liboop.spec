@@ -20,6 +20,11 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:		liboop-linkage_fix.diff
 # Add 8.5 and 8.6 to tcl versions configure script detects - AdamW 2008/12
 Patch1:		liboop-1.0-tcl86.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	adns-devel
 BuildRequires:	readline-devel
